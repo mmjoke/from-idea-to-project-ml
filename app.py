@@ -11,7 +11,7 @@ def process_main_page():
 
 def show_main_page():
     image = Image.open(
-        "D:/ml/ml-learn/ml-seminars/hse-ml/from_idea_to_prot_ML/data/page_icon_car.png")
+        "data/page_icon_car.png")
 
     st.set_page_config(
         layout="wide",
