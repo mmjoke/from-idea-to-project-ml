@@ -6,7 +6,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split 
 from pickle import dump, load
 
-def open_data(path="D:/ml/ml-learn/ml-seminars/hse-ml/from_idea_to_prot_ML/data/cars.csv"):
+def open_data(path="data/cars.csv"):
     df = pd.read_csv(path)
     return df
 
@@ -57,7 +57,7 @@ def preprocess_data(df: pd.DataFrame, test=True):
     else:
         return X_df
 
-def fit_and_save_model(X_df, y_df, test_size=0.3, random_state=123456789, path="D:/ml/ml-learn/ml-seminars/hse-ml/from_idea_to_prot_ML/data/model_weights.mw"):
+def fit_and_save_model(X_df, y_df, test_size=0.3, random_state=123456789, path="data/model_weights.mw"):
     X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=test_size, random_state=random_state)
     model = Ridge()
     model.fit(X_train, y_train)
@@ -71,7 +71,7 @@ def fit_and_save_model(X_df, y_df, test_size=0.3, random_state=123456789, path="
 
     print(f"Model was saved to {path}")
 
-def load_model_and_predict(df, path="D:/ml/ml-learn/ml-seminars/hse-ml/from_idea_to_prot_ML/data/model_weights.mw"):
+def load_model_and_predict(df, path="data/model_weights.mw"):
     with open(path, "rb") as file:
         model = load(file)
 
